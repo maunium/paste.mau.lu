@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Maunium Paste</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maunium.net/css/footer.css">
+  <link rel="stylesheet" href="https://maunium.net/css/text.css">
+  <link rel="stylesheet" href="/jcss/index.css">
+</head>
+<body>
+	{{.Include "/nav.html"}}
+
+	<div class="container">
+    <center>
+      <div class="alert alert-danger alert-dismissible fade in" id="notreadyalert" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <b>This is just a front-end demo. The backend is not yet done.</b>
+      </div>
+    </center>
+    <form class="main-form" action="#">
+      <div class="row">
+        <div class="col-sm-6 col-xs-7">
+          <input type="text" class="form-control" id="title" placeholder="Title">
+        </div>
+        <div class="col-lg-2 col-md-3 col-xs-5">
+          <select class="form-control" id="language" onchange="updateLanguage()">
+            <option value="plain_text" selected>Plain Text</option>
+            <option value="c_cpp">C/C++</option>
+            <option value="java">Java</option>
+            <option value="python">Python</option>
+            <option value="golang">Go</option>
+            <option value="rust">Rust</option>
+            <option value="swift">Swift</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">JavaScript</option>
+            <option value="json">JSON</option>
+            <option disabled>------------------</option>
+            <option value="actionscript">ActionScript</option>
+            <option value="ada">Ada</option>
+            <option value="apache_conf">Apache Configuration</option>
+            <option value="applescript">AppleScript</option>
+            <option value="assembly_x86">Assembly x86</option>
+            <option value="autohotkey">AutoHotkey</option>
+            <option value="batchfile">Batch</option>
+            <option value="cirru">Cirru</option>
+            <option value="clojure">Clojure</option>
+            <option value="coffee">CoffeeScript</option>
+            <option value="csharp">C#</option>
+            <option value="d">D</option>
+            <option value="dart">Dart</option>
+            <option value="django">Django</option>
+            <option value="dockerfile">Dockerfile</option>
+            <option value="eiffel">Eiffel</option>
+            <option value="elixir">Elixir</option>
+            <option value="elm">Elm</option>
+            <option value="erlang">Erlang</option>
+            <option value="forth">Forth</option>
+            <option value="fortran">Fortran</option>
+            <option value="gcode">G-code</option>
+            <option value="gitignore">.gitignore</option>
+            <option value="glsl">GLSL</option>
+            <option value="groovy">Groovy</option>
+            <option value="haml">Haml</option>
+            <option value="haskell">Haskell</option>
+            <option value="haxe">Haxe</option>
+            <option value="ini">INI file</option>
+            <option value="io">IO</option>
+            <option value="jack">Jack</option>
+            <option value="jade">Jade</option>
+            <option value="jsoniq">JSONiq</option>
+            <option value="jsp">JSP</option>
+            <option value="jsx">JSX</option>
+            <option value="julia">Julia</option>
+            <option value="latex">LaTeX</option>
+            <option value="less">Less</option>
+            <option value="liquid">Liquid</option>
+            <option value="lisp">Lisp</option>
+            <option value="livescript">LiveScript</option>
+            <option value="logiql">LogiQL</option>
+            <option value="lua">Lua</option>
+            <option value="makefile">Makefile</option>
+            <option value="markdown">Markdown</option>
+            <option value="matlab">MATLAB</option>
+            <option value="mush">MUSH</option>
+            <option value="mysql">MySQL</option>
+            <option value="nix">Nix</option>
+            <option value="objectivec">Objective-C</option>
+            <option value="ocaml">OCaml</option>
+            <option value="pascal">Pascal</option>
+            <option value="perl">Perl</option>
+            <option value="pgsql">PostgreSQL</option>
+            <option value="php">PHP</option>
+            <option value="powershell">PowerShell</option>
+            <option value="prolog">Prolog</option>
+            <option value="properties">Properties (Java)</option>
+            <option value="r">R</option>
+            <option value="ruby">Ruby</option>
+            <option value="sass">Sass</option>
+            <option value="scala">Scala</option>
+            <option value="scheme">Scheme</option>
+            <option value="scss">Scss</option>
+            <option value="sh">Shell</option>
+            <option value="sql">SQL</option>
+            <option value="stylus">Stylus</option>
+            <option value="svg">SVG</option>
+            <option value="tcl">Tcl</option>
+            <option value="tex">TeX</option>
+            <option value="textile">Textile</option>
+            <option value="toml">TOML</option>
+            <option value="typescript">TypeScript</option>
+            <option value="vala">Vala</option>
+            <option value="wollok">Wollok</option>
+            <option value="xml">XML</option>
+            <option value="yaml">YAML</option>
+          </select>
+        </div>
+      </div>
+      <br>
+      <div id="editor"></div>
+      <br>
+      <div class="pull-xs-right">
+        <input type="checkbox" id="private"> Private
+        &nbsp;
+        &nbsp;
+        <button type="submit" class="btn btn-submit" id="btn-submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  {{.Include "/footer.html"}}
+  <script src="https://cdn.jsdelivr.net/ace/latest/min/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/jcss/index.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
